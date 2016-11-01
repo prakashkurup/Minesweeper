@@ -122,7 +122,13 @@ int main(void)
   printArray(N, arr);
 
   /* Free them mallocs and callocs */
+  for (i = 0; i < N; i++) {
+    free(arr[i]);
+  }
   free(arr);
+  for (i = 0; i < newN; i++) {
+    free(new_arr[i]);
+  }
   free(new_arr);
 
   return 0;
