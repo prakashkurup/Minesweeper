@@ -121,15 +121,21 @@ int main(void)
   printf("After finding mines...\n");
   printArray(N, arr);
 
-  /* Free them mallocs and callocs */
+  /* Free them mallocs and callocs
+   * Free the columns first and then rows */
   for (i = 0; i < N; i++) {
     free(arr[i]);
   }
+  
   free(arr);
+  arr = NULL;
+  
   for (i = 0; i < newN; i++) {
     free(new_arr[i]);
   }
+  
   free(new_arr);
+  new_arr = NULL;
 
   return 0;
 }
